@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion | tabla-inventario</title>
+    <link rel="stylesheet" type="text/css" href="styles/estilos.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+	     <!--- cabezera -->
+
+  <header class="header">
+        <a href="index.html"><img src="images/logo ulem.png" alt="Logo" class="logo"> </a>
+      </header>
+	  	         <!------- final ---------->
+
+	
+		
+	<div class="contenedor-tabla">
+       
+	 <!--- contenedor inventario -->
+
+	   <h2>Lista de tabla-inventario</h2>
+			<table class="tabla-inventario">
+			  <thead>
+				<tr>
+					<th>Equipo</th>
+					<th>Laboratorio</th>
+					<th>Descripcion </th>
+					<th>Departamento</th>
+					<th>Modelo</th>
+					<th>Serial Nº</th>
+					<th>Opcion</th>
+					<th></th>
+				</tr>
+			  </thead>
+			  <tbody>
+				<tr>
+					<td>laptop</td>
+					<td>laboratorio 203 </td>
+					<td>accesorios informaticos </td>
+					<td>Dell gamer x233</td>
+					<td>Dell</td>
+					<td>x233</td>
+					<td>54545151515</td>
+				  <td><button type="eliminate" class="eliminar-fila"> - </button></td>
+				</tr>
+				<tr>
+					<td>laptop</td>
+					<td>laboratorio 203 </td>
+					<td>accesorios informaticos </td>
+					<td>hp Pavilon 555</td>
+					<td>hp</td>
+					<td>x555</td>
+					<td>551511122121</td>
+					<td><button type="eliminate" class="eliminar-fila"> - </button></td>
+				</tr>
+				
+				</tr>
+			  </tbody>
+			</table>
+			    <!------- final ---------->
+
+
+				  <!------- agregar un nuevo equipo ---------->
+
+			<div class="registro-admin-boton">
+				<button type="submit" onclick="mostrarFormulario()">Agregar al inventario</button>
+			</div>
+			  			    <!------- final ---------->
+
+			  <!------- Formularios para agregar nuevo uequipo ---------->
+
+			  <form id="registro-equipo" style="display: none;">
+				<h2>Registrar nuevo equipo </h2>
+			  
+				<label for="equipo">Equipos</label>
+				<input type="text" id="equipo" name="equipo" required>
+			  
+				<label for="Departamento">Departamentos</label>
+				<input type="text" id="departamento" name="departamento" required>
+			  
+				<label for="Descripcion">Descripcion</label>
+                <input type="text" id="descripcion" name=" descripcion" required>
+
+				<label for="Laboratorio">Laboratorios</label>
+				<input type="text" id="laboratorio" name="laboratorio" required>
+			  
+				<label for="Modelo">Modelo</label>
+				<input type="text" id="modelo" name="modelo" required>
+			  
+				<label for="Serial">Serial</label>
+                <input type="text" id="serial" name="serial" required>
+
+				<label for="opcion">Opcion</label>
+                <input type="text" id="opcion" name="opcion" required>
+
+					<button type="submit">Registrar</button>
+
+			  </form>
+			  		    <!------- final ---------->
+
+            </div>
+			        <!--- pie de pagina -->
+
+			<footer class="footer">
+			<strong>MANTA - MANABÍ - ECUADOR</strong>  &copy; Copyright 2023
+			</footer>
+    
+		    <!------- final ---------->
+
+	<script>
+	  
+
+		const formulario = document.querySelector('#registro-equipo');
+		const tablaestudiante = document.querySelector('.tabla-inventario tbody');
+
+		formulario.addEventListener('submit', (event) => {
+		event.preventDefault();
+
+		const equipo = document.querySelector('#equipo').value;
+		const departamento = document.querySelector('#departamento').value;
+		const descripcion= document.querySelector('#descripcion').value;
+		const laboratorio = document.querySelector('#laboratorio').value;
+		const modelo = document.querySelector('#modelo').value;
+		const serial= document.querySelector('#serial').value;
+		const opcion= document.querySelector('#opcion').value;
+		
+
+		const fila = document.createElement('tr');
+		fila.innerHTML = `
+			<td>${equipo}</td>
+			<td>${departamento}</td>
+			<td>${descripcion}</td>
+			<td>${laboratorio}</td>
+			<td>${modelo}</td>
+			<td>${serial}</td>
+			<td>${opcion}</td>
+			
+			
+			<td><button type="eliminate" class="eliminar-fila" data-message="¿Está seguro que desea eliminar esta fila?">Eliminar</button></td>
+		`;
+
+		tablaestudiante.appendChild(fila);
+
+		fila.querySelector('.eliminar-fila').addEventListener('click', () => {
+		const confirmacion = fila.querySelector('.eliminar-fila').getAttribute('data-message');
+		if (fila.rowIndex <= 2) { // verificar si es una de las dos primeras filas
+			alert('No se puede eliminar esta fila.'); // mostrar mensaje de error
+		} else if (confirm(confirmacion)) {
+			fila.remove();
+		}
+		});
+
+		formulario.reset();
+		formulario.style.display = 'none';
+		});
+
+		function mostrarFormulario() {
+		formulario.style.display = 'block';
+		}
+	</script>
+  </body>
+</html>

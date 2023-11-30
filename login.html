@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion | Login</title>
+    <link rel="stylesheet" href="styles/estilos.css">
+  </head>
+  <body>
+    <div class="datos-contenedor">
+
+ <!--- cabezera -->
+	 <header class="header">
+        <a href="index.html"><img src="images/logo ulem.png" alt="Logo" class="logo"> </a>
+      </header>
+ <!------- final ------------>
+
+  <!--- Cuerpo del formulario -->
+
+  <form id="login-formulario" onsubmit="iniciarSesion(event)">
+    <h2>Iniciar sesión</h2>
+    <div class="separador">
+      <label for="login-username">Nombre de usuario:</label>
+      <input type="text" id="login-username" name="login-username" placeholder="Ingresa tu usuario" tabindex="1" required>
+    </div>
+    <div class="separador">
+      <label for="login-password">Contraseña:</label>
+      <input type="password" id="login-password" name="login-password" placeholder="Ingresa tu contraseña" tabindex="2" required>
+    </div>
+    <p>¿No tienes cuenta? <a href="registro.html">Registrate aquí</a></p>
+  
+    <button type="submit" tabindex="3">Iniciar sesión</button>
+  </form>
+       <!------- final ------------>
+
+    </div>
+
+
+
+	
+     
+
+
+    <script src="javascript.js"></script>
+  </body>
+</html>

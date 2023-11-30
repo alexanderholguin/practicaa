@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion | informacion</title>
+    <link rel="stylesheet" href="styles/estilos.css">
+	  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  </head>
+  <body>
+     <!--- cabezera -->
+
+  <header class="header">
+        <a href="index.html"><img src="images/logo ulem.png" alt="Logo" class="logo"> </a>
+       
+
+      </header>
+	         <!------- final ---------->
+
+
+     <!--- Gestion de descripcion  -->
+
+    <div class="gestion-boton">
+      <button type="submit" onclick="mostrarFormularioAdmin()">añadir personal</button>
+      </div>
+	   <form id="formulario-login" style="display: none;">
+			  <label for="nombre-usuario">Nombre del Administrador:</label>
+			  <input type="text" id="nombre-admin" name="nombre-usuario">
+			  <br>
+			  <label for="contrasena">Contraseña del administrador:</label>
+			  <input type="password" id="contrasena-admin" name="contrasena">
+			  <br>
+			  <button type="submit">Iniciar sesión</button>
+		</form>
+		  <!------- final ---------->
+
+
+      <!--- Descripcion de proyecto -->
+
+    <div class="informacion">
+          <h1></h1>
+          <div class="tabla-informacion">
+            <section class="room individual">
+              <h2>Inventario de equipos Informaticos</h2>
+              <p>e¡Bienvenido al inventario informático!
+
+                Aquí podrás gestionar y mantener un registro de todos los equipos y dispositivos informáticos de tu organización. Podrás agregar nuevos elementos, actualizar información, realizar seguimiento de inventario y mucho más.
+                
+                Nuestro sistema te brindará una forma eficiente de organizar y administrar tus activos informáticos, lo que te permitirá optimizar el rendimiento y la disponibilidad de tus recursos tecnológicos.
+                
+                Si tienes alguna pregunta o necesitas ayuda, no dudes en contactarnos. ¡Disfruta de tu experiencia en nuestro inventario informático!</p>
+              
+                
+              </ul>
+               <a href="inventario.html"> <button type="submit" >Ir al inventario</button> </a>
+           
+          
+          		  <!------- final ---------->
+      </div>
+          <!--- Cabezera -->
+
+    <footer class="footer">
+      <strong>MANTA - MANABÍ - ECUADOR</strong>
+    </footer>
+
+        <!------- final ---------->
+
+    <script src="javascript.js"></script>
+
+            <!------- validacion del administrador ---------->
+
+    <script>
+      const usuario = {
+        nombreUsuario: 'Administrador',
+        contraseña: '2002'
+      };
+
+      // Obtén el formulario de inicio de sesión y agrega un evento de envío
+      const loginadmin = document.getElementById('formulario-login');
+      loginadmin.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // Obtiene los valores de entrada del usuario
+        const nombreUsuario = document.getElementById('nombre-admin').value;
+        const contraseña = document.getElementById('contrasena-admin').value;
+
+        // Verifica si el usuario y la contraseña son válidos
+        if (nombreUsuario === usuario.nombreUsuario && contraseña === usuario.contraseña) {
+        // Si los datos son válidos, redirige al usuario a la página de destino
+        window.location.href = 'registropersonal.html';
+        } else {
+        // Si los datos son inválidos, muestra un mensaje de error
+        alert('El nombre de usuario o la contraseña son incorrectos.');
+        }
+      });
+    </script>
+                 <!------- final validacion del administrador ---------->
+
+  </body>
+</html>
